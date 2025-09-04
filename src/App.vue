@@ -1,5 +1,5 @@
 <script setup>
-import Header from './views/Header.vue'
+import Header from './views/header.vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
