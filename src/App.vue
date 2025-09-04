@@ -1,6 +1,7 @@
 <script setup>
 import Header from './views/header.vue'
 import { useRoute } from 'vue-router'
+import { SpeedInsights } from "@vercel/speed-insights/vue"
 
 const route = useRoute()
 </script>
@@ -18,7 +19,7 @@ const route = useRoute()
   >
     <router-view></router-view>
   </div>
-  
+  <SpeedInsights></SpeedInsights>
 </template>
 
 <style scoped>
