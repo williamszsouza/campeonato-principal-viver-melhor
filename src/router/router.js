@@ -26,13 +26,19 @@ const routes = [
     name:'admin',
     component:PainelAdmin,
     beforeEnter: async (to, from, next) => {
-      const { data } = await supabase.auth.getUser()
-      if (data.user) {
-        next() 
-      } else {
-        next('/login') 
-      }
+  try {
+    const { data } = await supabase.auth.getUser()
+    if (data?.user) {
+      next()
+    } else {
+      next(to.path === '/login' ? true : '/login')
     }
+  } catch (err) {
+    console.error("Erro ao verificar usuário:", err)
+    next('/login')
+  }
+}
+
   }
 ]
 

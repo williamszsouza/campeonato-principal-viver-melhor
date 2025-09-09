@@ -171,8 +171,7 @@ export default {
       this.activeTableKey = key;
     },
     calculateSG(gols,gols_tomados){
-      this.saldoDeGols = gols - gols_tomados
-      return this.saldoDeGols
+      return gols - gols_tomados      
     },
     async loadTimes(){
       const data = await getAllTimes();
