@@ -74,3 +74,26 @@ export async function getAllArtilheiros() {
     }
     return data
 }
+
+export async function createJogo(jogo){
+    const {data,error} = await supabase
+    .from('proximos_jogos')
+    .insert([jogo])
+    if(error){
+        console.log(error)
+        throw error
+    }
+    return data
+}
+
+export async function getAllJogos(){
+    const {data,error} = await supabase
+    .from('proximos_jogos')
+    .select("*")
+    .order('id', {ascending:false})
+    if(error){
+        console.log(error)
+        throw error
+    }
+    return data
+}

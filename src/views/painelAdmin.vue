@@ -108,11 +108,11 @@
         <form @submit.prevent="salvarJogo">
           <div class="mb-3">
             <label class="form-label">Time 1</label>
-            <input type="text" class="form-control" v-model="jogo.time1" required>
+            <input type="text" class="form-control" v-model="jogo.time_cassa" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Time 2</label>
-            <input type="text" class="form-control" v-model="jogo.time2" required>
+            <input type="text" class="form-control" v-model="jogo.time_fora" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Data</label>
@@ -120,13 +120,13 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Horário</label>
-            <input type="time" class="form-control" v-model="jogo.hora" required>
+            <input type="time" class="form-control" v-model="jogo.horario" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Local</label>
             <input type="text" class="form-control" v-model="jogo.local" required>
           </div>
-          <button type="submit" class="btn btn-primary">Salvar</button>
+          <button type="submit" class="btn btn-primary" @click="insertJogo()">Salvar</button>
           <button class="btn btn-secondary" @click="goHome" style="margin-left: 10px;">Voltar</button>
         </form>
       </div>
@@ -261,7 +261,7 @@
 </template>
 
 <script>
-import { createTime, getAllTimes, updateTime, CreateArtilheiro, getAllArtilheiros, updateArtilheiro } from '../routes/api.js';
+import { createTime, getAllTimes, updateTime, CreateArtilheiro, getAllArtilheiros, updateArtilheiro, createJogo } from '../routes/api.js';
 
 export default {
   name: "AdminPainel",
@@ -271,7 +271,7 @@ export default {
       artilheiroTab: 'adicionar',
       timeTab: "adicionar",
       artilheiro: { nome: "", time: "", gols: "" },
-      jogo: { time1: "", time2: "", data: "", hora: "", local: "" },
+      jogo: { time_cassa: "", time_fora: "", data: "", horario: "", local: "" },
       time: { nome: "", logo: "", pontos: "", vitorias: "", partidas: "", derrotas: "", gt: "", gf: "", grupo_name: "" },
       grupo: { nome: "", times: "" },
 
@@ -305,6 +305,13 @@ export default {
     },
     async loadArtilheiros() {
       this.artilheiros = await getAllArtilheiros();
+    },
+    async insertJogo(){
+      try{
+        await createJogo(this.jogo)
+      }catch(e){
+        console.log(e)
+      }
     },
     async salvarArtilheiro(artilheiro) {
       try {

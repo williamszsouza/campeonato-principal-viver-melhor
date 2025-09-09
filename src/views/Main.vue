@@ -91,16 +91,17 @@
             <div v-for="jogo in proximosJogos" :key="jogo.id" class="match-card">
               <div class="match-header">
                 <span>{{ jogo.data }}</span>
-                <span>{{ jogo.estadio }}</span>
+                <span>{{ jogo.local }}</span>
               </div>
               <div class="match-body">
                 <div class="team">
-                  <img :src="jogo.time_casa.logo_url" :alt="jogo.time_casa.nome" class="team-logo-large">
+                  <span>{{ jogo.time_cassa }}</span>
+                  <img :src="getLogo(jogo.time_cassa)" alt="" class="team-logo">
                 </div>
                 <span class="vs-text">VS</span>
                 <div class="team">
-                  <img :src="jogo.time_visitante.logo_url" :alt="jogo.time_visitante.nome" class="team-logo-large">
-                  <span>{{ jogo.time_visitante.nome }}</span>
+                  <span>{{ jogo.time_fora }}</span>
+                  <img :src="getLogo(jogo.time_fora)" alt="" srcset="" class="team-logo">
                 </div>
               </div>
             </div>
@@ -116,7 +117,7 @@
 </template>
 
 <script>
-import { getAllTimes } from '../routes/api';
+import { getAllJogos, getAllTimes } from '../routes/api';
 import { getAllArtilheiros } from '../routes/api';
 
 export default {
@@ -138,16 +139,11 @@ export default {
       saldoDeGols:null,
 
 
-      // --- Dados FALSOS para Tabela de Artilheiros ---
       artilheiros: [],
 
-      // --- Dados FALSOS para Próximos Jogos ---
       proximosJogos: [
-        { id: 1, data: '01/09/2025 - 19:00', estadio: 'Arena da Baixada', time_casa: { nome: 'Athletico-PR', logo_url: 'https://s.sde.globo.com/media/organizations/2019/09/09/Athletico-PR.svg' }, time_visitante: { nome: 'Maringá', logo_url: 'https://s.sde.globo.com/media/organizations/2022/01/21/maringa_2022.svg' }},
-        { id: 2, data: '01/09/2025 - 21:00', estadio: 'Couto Pereira', time_casa: { nome: 'Coritiba', logo_url: 'https://s.sde.globo.com/media/organizations/2019/09/12/Coritiba.svg' }, time_visitante: { nome: 'Londrina', logo_url: 'https://s.sde.globo.com/media/organizations/2019/10/10/Londrina.svg' }},
-        { id: 3, data: '02/09/2025 - 20:00', estadio: 'Germano Krüger', time_casa: { nome: 'Operário-PR', logo_url: 'https://s.sde.globo.com/media/organizations/2019/10/11/Operario-PR.svg' }, time_visitante: { nome: 'Paraná Clube', logo_url: 'https://s.sde.globo.com/media/organizations/2020/07/02/parana.svg' }},
-        { id: 4, data: '07/09/2025 - 16:00', estadio: 'Arena da Baixada', time_casa: { nome: 'Athletico-PR', logo_url: 'https://s.sde.globo.com/media/organizations/2019/09/09/Athletico-PR.svg' }, time_visitante: { nome: 'Coritiba', logo_url: 'https://s.sde.globo.com/media/organizations/2019/09/12/Coritiba.svg' }},
-      ],
+        
+    ],
       currentIndex: 0, // Controla a posição do carrossel
     };
   },
@@ -164,15 +160,24 @@ export default {
   mounted(){
       this.loadTimes()
       this.loadArtilheiros()
+      this.loadJogos()
 
   },  
   methods: {
     changeTable(key) {
       this.activeTableKey = key;
     },
+    async loadJogos(){
+      const data = await getAllJogos();
+      this.proximosJogos = data
+    },
     calculateSG(gols,gols_tomados){
       return gols - gols_tomados      
     },
+    getLogo(timeName) {
+    const team = this.teams.find(t => t.nome == timeName);
+    return team ? team.logo : ''; 
+  },
     async loadTimes(){
       const data = await getAllTimes();
       this.teams = data;
