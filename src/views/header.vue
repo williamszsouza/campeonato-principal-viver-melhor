@@ -83,8 +83,8 @@ export default {
         pat130, pat131, pat132, pat133, pat134, pat135, pat136, pat137, pat138, pat139,
         pat140, pat141, pat142
       ],
-      offset: 0,
-      speed: 1
+      offset: 0.5,
+      speed:2
     };
   },
   methods: {
@@ -167,7 +167,6 @@ export default {
   transform: scale(1.1);
   border-radius: 20px;
 }
-/* Apenas estilos novos para o carrossel, sem alterar nada existente */
 .carousel-viewport {
   width: 100%;
   overflow: hidden;
@@ -184,13 +183,16 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
 }
 
 .patro-card img {
-  max-width: 100%;
+  width: 150px;
   max-height: 150px;
+  border-radius: 20px;
   image-rendering: optimizeQuality;
-  object-fit: cover;
+  box-shadow: 1px 1px 5px beige;
+  object-fit:cover;
 }
 
 /* ================= Media Queries ================= */
