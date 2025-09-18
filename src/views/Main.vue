@@ -49,6 +49,7 @@
 
     <div class="tabela-artilheiro">
       <h2 class="main-title">Artilharia</h2>
+      <h2 class="main-title" v-if="artilheiros.length == 0" style="color: red;">Sem informações sobre os artilheiros</h2>
       <div class="table-wrapper">
         <table>
           <thead>
@@ -82,6 +83,7 @@
 
     <div class="proximos-jogos">
       <h2 class="main-title">Próximos Jogos</h2>
+      <h2 class="main-title" v-if="proximosJogos.length == 0" style="color: red;">Sem informações dos proximos jogos</h2>
       <div class="carousel-container">
         <button @click="prevSlide" :disabled="currentIndex === 0" class="carousel-arrow left">
           &#8249;
@@ -283,8 +285,8 @@ export default {
 table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 th, td { padding: 10px; text-align: center; border-bottom: 1px solid #ddd; vertical-align: middle; }
 thead th { background-color: #1e3a5f; color: white; font-weight: 700; font-size: 0.8rem; text-align: center; }
-tbody tr:hover { background-color: #c5c0c0; }
-tbody tr { background-color: #e6e4e4; }
+tbody tr:hover { background-color: #e1dddd; }
+tbody tr { background-color: #fff; }
 
 /* Colunas e Info de Times */
 .pos-col { width: 5%; font-weight: 700; }
@@ -292,10 +294,10 @@ tbody tr { background-color: #e6e4e4; }
 .club-col { width: 50%; }
 .player-col { width: 40%; }
 .team-col { width: 30%; }
-.points-col, .goals-col { font-weight: 700; color: #1e3a5f; }
+.points-col, .goals-col { font-weight: 700; color: #333; }
 .goals-col { font-size: 1.1rem; }
 .team-info, .player-info { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.team-logo { width: 30px; height: 30px; }
+.team-logo { width: 70px; height: 70px; }
 .player-photo { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 2px solid #eee; }
 
 /* Estilos do Carrossel */
