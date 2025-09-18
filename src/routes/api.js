@@ -5,7 +5,8 @@ export async function getAllTimes() {
     const{data,error} = await supabase
     .from('times')
     .select('*')
-     .order('pontos', { ascending: false });
+     .order('pontos', { ascending: false })
+     .order('nome', {ascending:true});
     if(error){
         console.log(error)
     }
