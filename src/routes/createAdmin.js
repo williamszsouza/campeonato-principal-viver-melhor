@@ -2,8 +2,7 @@ import { supabase } from '../lib/supabase.js'
 
 async function criarUsuarioAdmin() {
   const { data, error } = await supabase.auth.admin.createUser({
-    email: 'admin@admin.com',
-    password: 'admin1234',
+   
     email_confirm: true,
     user_metadata: { role: 'admin' }
   })
