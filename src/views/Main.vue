@@ -30,7 +30,7 @@
                   <td class="club-col">
                     <div class="team-info">
                       <img :src="team.logo" :alt="team.nome" class="team-logo">
-                      <span>{{ team.nome }}</span>
+                      <span style="text-transform: capitalize;">{{ team.nome }}</span>
                     </div>
                   </td>
                   <td class="points-col">{{ team.partidas}}</td>
