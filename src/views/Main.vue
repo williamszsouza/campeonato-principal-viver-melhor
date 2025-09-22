@@ -90,6 +90,7 @@ import jogoImg8 from '../assets/jogos 1 rodada sab/IMG-20250922-WA0008.jpg';
 import jogoImg9 from '../assets/jogos 1 rodada sab/IMG-20250922-WA0009.jpg';
 import jogoImg10 from '../assets/jogos 1 rodada sab/IMG-20250922-WA0010.jpg';
 import jogoImg11 from '../assets/jogos 1 rodada sab/IMG-20250922-WA0011.jpg';
+import jogoImg12 from '../assets/jogos 1 rodada sab/Imagem do WhatsApp de 2025-09-22 à(s) 16.20.55_0ac22719.jpg';
 
 
 export default {
@@ -117,6 +118,7 @@ export default {
         { src: jogoImg9, alt: 'Jogo da 1ª Rodada' },
         { src: jogoImg10, alt: 'Jogo da 1ª Rodada' },
         { src: jogoImg11, alt: 'Jogo da 1ª Rodada' },
+        { src: jogoImg12, alt: 'Jogo da 1ª Rodada' },
       ],
       currentIndex: 0,
     };
