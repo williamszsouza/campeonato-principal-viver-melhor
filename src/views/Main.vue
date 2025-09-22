@@ -220,8 +220,8 @@ tbody tr:hover { background-color: #e1dddd; }
 @media (max-width: 768px) {
   .team-logo { width: 25px; height: 25px; }
   .carousel-viewport, .carousel-slide {
-    max-height: 200px; /* Altura para telas menores */
-    height: 200px;
+    max-height: 350px; /* Altura para telas menores */
+    height: 350px;
   }
 }
 </style>
