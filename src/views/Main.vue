@@ -84,6 +84,12 @@ import jogoImg2 from '../assets/jogos 1 rodada/IMG-20250922-WA0002.jpg';
 import jogoImg3 from '../assets/jogos 1 rodada/IMG-20250922-WA0003.jpg';
 import jogoImg4 from '../assets/jogos 1 rodada/IMG-20250922-WA0004.jpg';
 import jogoImg5 from '../assets/jogos 1 rodada/IMG-20250922-WA0005.jpg';
+import jogoImg6 from '../assets/jogos 1 rodada sab/IMG-20250922-WA0006.jpg';
+import jogoImg7 from '../assets/jogos 1 rodada sab/IMG-20250922-WA0007.jpg';
+import jogoImg8 from '../assets/jogos 1 rodada sab/IMG-20250922-WA0008.jpg';
+import jogoImg9 from '../assets/jogos 1 rodada sab/IMG-20250922-WA0009.jpg';
+import jogoImg10 from '../assets/jogos 1 rodada sab/IMG-20250922-WA0010.jpg';
+import jogoImg11 from '../assets/jogos 1 rodada sab/IMG-20250922-WA0011.jpg';
 
 
 export default {
@@ -105,6 +111,12 @@ export default {
         { src: jogoImg3, alt: 'Jogo da 1ª Rodada' },
         { src: jogoImg4, alt: 'Jogo da 1ª Rodada' },
         { src: jogoImg5, alt: 'Jogo da 1ª Rodada' },
+        { src: jogoImg6, alt: 'Jogo da 1ª Rodada' },
+        { src: jogoImg7, alt: 'Jogo da 1ª Rodada' },
+        { src: jogoImg8, alt: 'Jogo da 1ª Rodada' },
+        { src: jogoImg9, alt: 'Jogo da 1ª Rodada' },
+        { src: jogoImg10, alt: 'Jogo da 1ª Rodada' },
+        { src: jogoImg11, alt: 'Jogo da 1ª Rodada' },
       ],
       currentIndex: 0,
     };
