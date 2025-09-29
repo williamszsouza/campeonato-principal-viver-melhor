@@ -2,15 +2,18 @@ import { supabase } from "../lib/supabase";
 
 //get todos times
 export async function getAllTimes() {
-    const{data,error} = await supabase
-    .from('times')
-    .select('*')
-     .order('pontos', { ascending: false })
-     .order('nome', {ascending:true});
-    if(error){
-        console.log(error)
-    }
-    return data
+    const{data,error} = await supabase
+    .from('times') // Consulta a tabela 'times' que agora está 100% correta
+    .select('*')
+     .order('pontos', { ascending: false })      // Critério 1: Mais pontos
+     .order('sg', { ascending: false })          // Critério 3: Maior saldo de gols
+     .order('gf', { ascending: false })          // Critério 4: Mais gols feitos
+     .order('nome', {ascending:true});           // Por último, ordem alfabética
+
+    if(error){
+        console.log(error)
+    }
+    return data
 }
 
 //criar time
